@@ -1,0 +1,7 @@
+{
+  "name": "Ichat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
