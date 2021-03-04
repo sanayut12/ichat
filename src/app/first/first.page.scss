@@ -1,4 +1,5 @@
 #form{
+  padding-top: 500px;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -14,6 +15,7 @@
 #background {
   height: 100%;
   background-image: url('./first.png');
+  background-size: 100%;
   align-items: center;
   display:flex;
   flex-direction: column;

@@ -4,6 +4,32 @@ import {HttpClient,HttpHeaders} from '@angular/common/http'
   providedIn: 'root'
 })
 export class HttpService {
+  url = "http://localhost:3000"
+  constructor(
+    private http:HttpClient,
+    ) { }
 
-  constructor() { }
+  onRegister(body){
+    return this.http.post(
+      this.url+"/register",
+      body,
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    )
+  }
+
+  onLogin(body){
+    return this.http.post(
+      this.url+"/login",
+      body,
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    )
+  }
 }
