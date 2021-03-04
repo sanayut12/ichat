@@ -1,0 +1,23 @@
+#container{
+  height: 100%;
+  width: 100%;
+  background-color: aquamarine;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#container ion-input{
+  margin-top: 10px;
+  width: 100%;
+  color: aliceblue;
+  padding-left: 10px;
+  background-color: blueviolet;
+}
+
+
+#container button{
+  margin-top: 10px;
+  width: 100px;
+  height: 50px;
+}

@@ -1,0 +1,15 @@
+<ion-content>
+  <div id="container">
+    <form novalidate #registerForm="ngForm" >
+      email
+      <ion-input ngModel #email = 'ngModel' name ="email" value="E-Mail"></ion-input>
+      username
+      <ion-input ngModel #username = 'ngModel' name="username" value="Username"></ion-input>
+      password
+      <ion-input ngModel #password = 'ngModel' name="password" value="Password"></ion-input>
+      confirm password
+      <ion-input ngModel #confirmpassword = 'ngModel' name="confirmpassword" value="Confirm Password"></ion-input>
+      <button (click)="clickRegister(registerForm.value)">Register</button>
+    </form>
+  </div>
+</ion-content>
