@@ -1,9 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+<div id="container" *ngIf="profile_info">
+  <img class="background" src = {{profile_info.url_background}}>
+  <img class="main_image" src={{profile_info.url_image}}>
+  <div class="username">{{profile_info.username}}</div>
 
+  <div class="postfriend">
+    <div>Friend</div>
+    <div class="between"></div>
+    <div>Post</div>
+  </div>
+
+  <ion-button (click)="showInfo()"> click Me</ion-button>
+</div>
 </ion-content>

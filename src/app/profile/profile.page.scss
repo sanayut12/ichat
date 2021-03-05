@@ -1,0 +1,39 @@
+#container{
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#container .background{
+  background-size: 20%;
+  padding: 10px 10px 10px 10px;
+  border-radius: 20px;
+  outline:red;
+  outline-width: 20px;
+}
+
+#container .main_image{
+  background-size: 5%;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+#container .username{
+  font-size: 30pt;
+}
+
+#container .postfriend{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#container .postfriend .between{
+width: 100px;
+}
+
+// "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png"

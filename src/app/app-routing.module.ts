@@ -31,6 +31,22 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'post',
+    loadChildren: () => import('./post/post.module').then( m => m.PostPageModule)
+  },
+  {
+    path: 'chatfriend',
+    loadChildren: () => import('./chatfriend/chatfriend.module').then( m => m.ChatfriendPageModule)
+  },
+  {
+    path: 'notification',
+    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
+  },
+  {
+    path: 'addfriend',
+    loadChildren: () => import('./addfriend/addfriend.module').then( m => m.AddfriendPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,19 +7,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainPage implements OnInit {
 
-  profile : String
-  constructor(
-    private route : ActivatedRoute
-  ) {
-    this.profile = this.route.snapshot.paramMap.get('body')
-
-  }
+  constructor( ) {}
 
   ngOnInit() {
-  }
-
-  clickShow(){
-    console.log(this.profile)
   }
 
 }

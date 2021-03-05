@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AlertController, NavController} from '@ionic/angular'
+import { Plugins } from '@capacitor/core';
 import {HttpService} from '../service/http.service'
-
+const {Storage} = Plugins
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -46,7 +47,15 @@ export class LoginPage implements OnInit {
 
   goToMain(body){
     console.log(body)
-    this.navCtrl.navigateForward(["/main",{body:JSON.stringify(body)}])
+    this.setProfileInLocal(JSON.stringify(body))
+    this.navCtrl.navigateForward("/main")
+  }
+
+  setProfileInLocal = async (body) =>{
+    await Storage.set({
+      key : 'profile',
+      value : body
+    })
   }
 
 }

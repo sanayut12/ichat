@@ -1,10 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>main</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
+<!-- <ion-content>
 {{profile}}
 <button (click)="clickShow()"> Click</button>
-</ion-content>
+</ion-content> -->
+
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="post">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>post</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="chatfriend">
+      <ion-icon name="ellipse"></ion-icon>
+      <ion-label>chatfriend</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>profile</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="addfriend">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>addfriend</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="notification">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>notification</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+
+</ion-tabs>
