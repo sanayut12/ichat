@@ -1,7 +1,8 @@
 {
   "name": "Ichat",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

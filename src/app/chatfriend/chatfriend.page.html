@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>chatfriend</ion-title>
+    <ion-icon slot="end" name ="reload" (click)="getfriend()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<button (click)="show()">Show profile</button>
+<button (click)="showfriend()"> show Friend</button>
 
+<a *ngIf="user_info">{{user_info}}</a>
+<h1>====================================</h1>
+<a *ngIf="friend_info">{{friend_info}}</a>
 </ion-content>
