@@ -4,7 +4,7 @@ import {HttpClient,HttpHeaders} from '@angular/common/http'
   providedIn: 'root'
 })
 export class HttpService {
-  url = "https://ichatserver.herokuapp.com"
+  url = "http://localhost:3000"
   constructor(
     private http:HttpClient,
     ) { }
