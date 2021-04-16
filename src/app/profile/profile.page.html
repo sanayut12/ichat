@@ -1,7 +1,7 @@
 <ion-content>
 <div id="container" *ngIf="user_info">
-  <img class="background" src = {{user_info.url_background}}>
-  <img class="main_image" src={{user_info.url_image}}>
+  <img class="background" src = {{user_info.url_background}} (click)="selectImageSource()">
+  <img class="main_image" src={{user_info.url_image}} (click)="selectImageSource()">
   <div class="username">{{user_info.username}}</div>
 
   <div class="postfriend">

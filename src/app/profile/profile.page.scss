@@ -1,9 +1,14 @@
+
 #container{
   height: 100%;
   width: 100%;
-  background-color: blue;
-  align-items: center;
+
   display: flex;
+  flex-direction: column;
+  background-image: url('./homep.png');
+  background-size: 100%;
+  align-items: center;
+  display:flex;
   flex-direction: column;
 }
 
@@ -35,5 +40,6 @@
 #container .postfriend .between{
 width: 100px;
 }
+
 
 // "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png"

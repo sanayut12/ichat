@@ -83,5 +83,49 @@ export class HttpService {
     )
   }
 
+  onPostFeed(ID:String , message:String,image:String){
+    return this.http.post(
+      this.url+'/postFeed',
+      {
+        ID:ID,
+        message : message,
+        image : image
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
 
+  onFeed(ID:String){
+    return this.http.post(
+      this.url+'/feed',
+      {
+        ID:ID
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
+
+  onchangeImageProfile(ID : String,image : String){
+    return this.http.post(
+      this.url+'/changeimageProfile',
+      {
+        ID:ID,
+        image : image
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
+  
 }

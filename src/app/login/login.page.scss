@@ -1,31 +1,31 @@
 #container{
   align-items: center;
   align-self: center;
-  display: flex;
+  //display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: red;
 }
 
 #container ion-grid{
   width: 100%;
   display: grid;
-  background-color: ivory;
+
 }
 #form{
-  margin-top: 250px;
-  background-color: ivory;
+  margin-top: 120px;
   height: 20%;
   width: 100%;
   align-items: center;
   display: flex;
   flex-direction: column;
+
 }
 
 #form ion-input{
-background-color: lawngreen;
+background-color: #efc2b6;
 width: 70%;
+height: 100%;
 align-self: center;
 align-items: center;
 display: flex;
@@ -35,9 +35,27 @@ margin-bottom: 10px;
 }
 
 #container input{
-  margin-top: 20px;
-  height: 100px;
-  width: 150px;
-  background-color: burlywood;
+  margin-top: 30px;
+  height: 320px;
+  width: 100px;
+  color: #FFFF;
+  background-color: #F48478;
+
 }
 
+#background {
+  height: 100%;
+  background-image: url('./login.png');
+  background-size: 100%;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+}
+
+#background  h1{
+  padding-top: 50px;
+  color: #FFFF;
+  font-size: 30px;
+
+
+}

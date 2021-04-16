@@ -1,0 +1,103 @@
+#background {
+    height: 100%;
+    background-image: url('./home.png');
+    background-size: 100%;
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+  }
+
+#postbox{
+    background-color:white;
+    color: black;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    height: 250px;
+    width: 90%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 5px;
+}
+#inputpost{
+    width: 50%;
+    height: 50%;
+}
+#postbutton{
+    align-items: center;
+    background-color: green;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    width: 100px;
+    border-radius: 10%;
+}
+#postsend{
+    border-radius: 5px;
+    display: flex;
+    height: 150px;
+    width: 90%;
+    background-color:white;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+#screen{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+}
+
+#imageR{
+    margin-top: 5px;
+    height: 150px;
+    width: 150px;
+    align-self: center;
+    
+}
+
+#imageP{
+    height: 150px;
+    width: 150px;
+}
+#listPost{
+    background-color: transparent;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#userpost{
+width: 100%;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+}
+
+#userpost .profile{
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+}
+
+#postbox .textbox{
+    // height: 150;
+    margin-left: 30px;
+    width: 150px;
+}
+
+#name{
+    font-size: 20px;
+    color: black;
+
+}
+#date{
+    font-size: 5px;
+}
+#messagebox{
+    height: 50px;
+    width: 100px;
+}

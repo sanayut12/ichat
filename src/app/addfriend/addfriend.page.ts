@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from '../service/http.service'
 import {Plugins} from '@capacitor/core'
+import { stringify } from '@angular/compiler/src/util';
 const {Storage} = Plugins
 @Component({
   selector: 'app-addfriend',
@@ -69,6 +70,9 @@ export class AddfriendPage implements OnInit {
     this.keys_search = []
 
     for (let key in this.all_user){
+      var lk = "fsffffdfdfef"
+      
+      console.log(" lk    "+this.all_user[key]["username"])
       if (this.all_user[key]["username"].slice(0,len) == name){
         this.all_user_search[key] = this.all_user[key]
         this.keys_search.push(key)

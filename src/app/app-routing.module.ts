@@ -46,7 +46,11 @@ const routes: Routes = [
   {
     path: 'addfriend',
     loadChildren: () => import('./addfriend/addfriend.module').then( m => m.AddfriendPageModule)
+  },  {
+    path: 'boxpost',
+    loadChildren: () => import('./boxpost/boxpost.module').then( m => m.BoxpostPageModule)
   },
+
 ];
 
 @NgModule({

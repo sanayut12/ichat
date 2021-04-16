@@ -1,14 +1,16 @@
 <ion-content color="light" >
   <div id="container">
+    <div id="background">
 
-    <form id="form" novalidate #loginForm="ngForm">
-      username
-      <ion-input ngModel #username="ngModel" name ="username"></ion-input>
-      password
-      <ion-input ngModel #password="ngModel" name ="password"></ion-input>
-      <input type="button" value="login" name="Login" (click)="clickLogin(loginForm.value)">
-      <input type="button" value="forget" name="Forget Password">
-    </form>
-
+      <h1>Welcome to IChat</h1>
+      <form id="form" novalidate #loginForm="ngForm">
+        username
+        <ion-input ngModel #username="ngModel" name ="username"></ion-input>
+        password
+        <ion-input ngModel #password="ngModel" name ="password"></ion-input>
+        <input type="button" value="login" name="Login" (click)="clickLogin(loginForm.value)">
+        <input type="button" value="forget" name="Forget Password">
+      </form>
+    </div>
   </div>
 </ion-content>
