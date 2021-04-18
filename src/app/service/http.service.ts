@@ -4,7 +4,7 @@ import {HttpClient,HttpHeaders} from '@angular/common/http'
   providedIn: 'root'
 })
 export class HttpService {
-  url = "https://ichatserver.herokuapp.com/"
+  url = "https://ichatserver.herokuapp.com" //"http://localhost:3000"
   constructor(
     private http:HttpClient,
     ) { }
@@ -127,5 +127,18 @@ export class HttpService {
       }
     );
   }
-  
+  onchangeImageBackground(ID : String,image : String){
+    return this.http.post(
+      this.url+'/changeimagebacbground',
+      {
+        ID:ID,
+        image : image
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
 }

@@ -11,6 +11,7 @@ const {Storage,Camera} = Plugins
 })
 export class ProfilePage implements OnInit {
   user_image_profile : String
+  user_image_background : String
   user_info : Object
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   constructor(private http: HttpService, private plt:Platform,private actionSheetCtrl: ActionSheetController) { }
@@ -136,7 +137,20 @@ export class ProfilePage implements OnInit {
       source
     });
     console.log(typeof image.base64String)
-    // this.imagePost = image.base64String
+    this.user_image_background = image.base64String
+    await this.onchange_image_background(this.user_image_background)
     // this.convertimage ="data:image/jpeg;base64,"+ this.imagePost
+  }
+
+  async onchange_image_background(image) {
+
+    await this.http.onchangeImageBackground(this.user_info["ID_user"],image).subscribe((res)=>{
+      // return res['image']
+      this.user_info["url_background"] = res['imagebackground']
+      console.log(res['imagebackground'])
+      // console.log(this.user_info)
+    })
+    // console.log(this.user_info)
+    
   }
 }
