@@ -1,16 +1,17 @@
 <ion-content>
   <div id="container">
-    {{message}}
-    <form novalidate #registerForm="ngForm" >
+    <h1 id = head> Create Account</h1>
+    <form id ="input" novalidate #registerForm="ngForm" >
       email
-      <ion-input ngModel #email = 'ngModel' name ="email" value="E-Mail"></ion-input>
+      <ion-input ngModel #email = 'ngModel' name ="email" value="E-Mail"><ion-icon id="mail" name="mail"></ion-icon></ion-input><br>
       username
-      <ion-input ngModel #username = 'ngModel' name="username" value="Username"></ion-input>
+      <ion-input ngModel #username = 'ngModel' name="username" value="Username"><ion-icon id="person" name="person"></ion-icon></ion-input><br>
       password
-      <ion-input ngModel #password = 'ngModel' name="password" value="Password"></ion-input>
+      <ion-input ngModel ngModel #password = 'ngModel' name="password" value="Password" [type]="password_type"><ion-icon id="key" name="key"></ion-icon></ion-input><br>
       confirm password
-      <ion-input ngModel #confirmpassword = 'ngModel' name="confirmpassword" value="Confirm Password"></ion-input>
-      <button (click)="clickRegister(registerForm.value)">Register</button>
-    </form>
+      <ion-icon  item-right (click)="togglePasswordMode()"></ion-icon>
+      <ion-input ngModel #confirmpassword = 'ngModel' name="confirmpassword" value="Confirm Password" [type]="password_type"><ion-icon id="key" name="key"></ion-icon></ion-input>
+    <button (click)="clickRegister(registerForm.value)">Register</button></form>
+
   </div>
 </ion-content>

@@ -3,14 +3,16 @@
     <div id="background">
 
       <h1>Welcome to IChat</h1>
-      <form id="form" novalidate #loginForm="ngForm">
-        username
-        <ion-input ngModel #username="ngModel" name ="username"></ion-input>
-        password
-        <ion-input ngModel #password="ngModel" name ="password"></ion-input>
-        <input type="button" value="login" name="Login" (click)="clickLogin(loginForm.value)">
-        <input type="button" value="forget" name="Forget Password">
+      <form  novalidate #loginForm="ngForm" >
+
+        <ion-input id="form1" ngModel #username="ngModel" name ="username" placeholder="Username"><ion-icon id="person" name="person"></ion-icon></ion-input>
+        <ion-input id="form2" ngModel #password="ngModel" name ="password" [type]="password_type" placeholder="Password"><ion-icon id="key" name="key"></ion-icon></ion-input>
+        <ion-icon  item-right (click)="togglePasswordMode()"></ion-icon>
+
+        <input id="login1" type="button" value="login" name="Login" (click)="clickLogin(loginForm.value)">
       </form>
     </div>
   </div>
+
+
 </ion-content>

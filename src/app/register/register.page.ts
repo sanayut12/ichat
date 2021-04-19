@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import {HttpService} from '../service/http.service'
 
 @Component({
@@ -16,11 +16,15 @@ export class RegisterPage implements OnInit {
 
   constructor(
     private alert:AlertController,
+    private navCtrl: NavController,
     private httpService : HttpService
     ) {
       this.message = "hello"
      }
-
+  password_type: string = 'password';
+  togglePasswordMode() {
+    this.password_type = this.password_type === 'text' ? 'password' : 'text';
+     }
   ngOnInit() {
     this.body = {
       username : "",
@@ -52,6 +56,7 @@ export class RegisterPage implements OnInit {
 
     this.body = item
     if(item.password != item.confirmpassword){
+
       this.alertPasswordNotMatch()
     }else{
       this.httpService.onRegister(item).subscribe(
@@ -63,6 +68,7 @@ export class RegisterPage implements OnInit {
         }
       )
     }
+    this.navCtrl.navigateRoot("login");
   }
 
 }

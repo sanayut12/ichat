@@ -1,70 +1,91 @@
+
 <ion-content >
-  
   <!-- <ion-button (click)="getProfile()"> getPrefile</ion-button>
   <ion-button  ><h1>Upoload</h1></ion-button> -->
-  <div  id="background"> 
-    <ion-icon slot="end" name="reload-outline" (click)="onFeeding()"></ion-icon>
+<div  id="background">
+    <!-- <ion-icon name="add-circle-outline" size="large"></ion-icon> -->
+    <img id ="logo"src=" https://drive.google.com/uc?export=view&id=1a2A-YRUpymaDdDp6Ie0daMO_dHtuLGGL" alt="">
     <img src="https://firebasestorage.googleapis.com/v0/b/ichatdatabase-28430.appspot.com/o/art1122.jpg?alt=media&token=332f16e8-0072-40d1-913a-6f25c46c29af" alt="">
     <button id="postbutton" *ngIf="postStatus" (click)="poststatusClick()">
-      create post
+      <img src="https://drive.google.com/uc?export=view&id=1xwGYun7nxJjCos7lFLgWuRhPhsjKZriu" alt="">
     </button>
+
+    <!-- <ion-icon name="add-circle-outline" size="large"></ion-icon> -->
     <div id="postsend" *ngIf="!postStatus">
       <ion-grid>
         <ion-row>
-          <img (click)="selectImageSource()" id="imageP" [src]="convertimage" alt="">
+          <img (click)="selectImageSource()" id="imageP" src="https://drive.google.com/uc?export=view&id=1W2DiYSDeGPsBsfaJvZaugh2dxtviwU05" alt="">
             <ion-col>
               <ion-item id="inputpost" >
                 <!-- <ion-label position="floating">Description</ion-label> -->
                 <ion-textarea id="messagebox" type="text" [(ngModel)]="message" ></ion-textarea>
               </ion-item>
               <ion-row>
-                <ion-button (click)="onPostFeedConfirm()">post</ion-button>
-                <ion-button (click)="poststatusClickCancel()">cancel</ion-button>
+                <ion-button id="post" color="light" (click)="onPostFeedConfirm()">post</ion-button>
+                <ion-button id="cancle" color="danger" (click)="poststatusClickCancel()">cancel</ion-button>
               </ion-row>
             </ion-col>
 
-            
+
         </ion-row>
-            
+
       </ion-grid>
     </div>
-    <ion-list *ngIf="feeding" id="listPost">
+    <ion-list lines="none" *ngIf="feeding" id="listPost">
 
         <!-- <ion-button (click)="ontest()">click</ion-button> -->
-        <ion-item-sliding *ngFor = "let item of index_feeding" id="listPost"> 
+        <ion-item-sliding *ngFor = "let item of index_feeding" id="listPost">
           <div id="postbox">
-            
+
             <ion-grid id="userpost">
 
               <ion-row>
-                <ion-col> 
+                <ion-col>
                   <img class="profile" [src]="feeding2[item]['image_profile']" alt="" >
-                </ion-col>   
+                </ion-col>
                 <ion-row>
                   <ion-col >
                     <a id="name">
-                      {{feeding2[item]['name']}} 
-                    </a>  
+                      {{feeding2[item]['name']}}
+                    </a>
                     <ion-row>
                       <ion-col id="date">
-                        {{feeding2[item]['date']}}   
+                        {{feeding2[item]['date']}}
                       </ion-col>
                     </ion-row>
                   </ion-col>
-                </ion-row>                
+                </ion-row>
               </ion-row>
+
+
             </ion-grid>
-            <h6 class="textbox">{{feeding2[item]['message']}}</h6>
-            <img id="imageR" [src]="feeding2[item]['url']" alt="">
-            
+
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <img id="imageR" [src]="feeding2[item]['url']" alt="">
+                </ion-col>
+                <ion-col>
+
+                  <h6 class="textbox">{{feeding2[item]['message']}}</h6>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+
+              </ion-row> -->
+            </ion-grid>
+
+
+
+
             <!-- <ion-grid fixed>
               <ion-row>
                 <ion-col>
-                  
+
                 </ion-col>
                 <ion-col>
                   <h5 class="textbox">
-                    
+
                   </h5>
                 </ion-col>
               </ion-row>
@@ -75,16 +96,16 @@
                     <img id="imageR" [src]="feeding2[item]['url']" alt="">
                   <h5>{{feeding2[item]['message']}}</h5>
                   </ion-col>
-                </ion-row>                  
+                </ion-row>
               </ion-col> -->
 
-            
+
           </div>
         </ion-item-sliding>
     </ion-list>
-    
 
-    
+
+
   </div>
-  
+
 </ion-content>

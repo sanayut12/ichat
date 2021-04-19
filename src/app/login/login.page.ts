@@ -18,8 +18,11 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.status = {}
-  }
-
+}
+password_type: string = 'password';
+togglePasswordMode() {
+  this.password_type = this.password_type === 'text' ? 'password' : 'text';
+}
   clickLogin(item:any){
     console.log(item)
     this.http.onLogin(item).subscribe((response)=>{
