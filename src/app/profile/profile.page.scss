@@ -30,17 +30,28 @@
 
 #container .username{
   font-size: 30pt;
+  color: azure;
+  font-weight: bold;
 }
 
 #container .postfriend{
   align-items: center;
   display: flex;
   flex-direction: row;
+  color: azure;
+  font-weight: bold;
 }
 
 #container .postfriend .between{
 width: 100px;
 }
-
+#numpost{
+  height: 50px;
+  width: 50px;
+}
+#numfriend{
+  height: 50px;
+  width: 50px;
+}
 
 // "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png"

@@ -5,25 +5,54 @@
   <div class="username">{{user_info.username}}</div>
 
   <div class="postfriend">
+    <img id="numfriend" src="https://drive.google.com/uc?export=view&id=1UGtZKCDjUl9-xPGAxRfwxptdcfBlGIpp">
     <div>Friend</div>
     <div class="between"></div>
+    <img id="numpost" src= "https://drive.google.com/uc?export=view&id=1xwGYun7nxJjCos7lFLgWuRhPhsjKZriu">
     <div>Post {{countPost}}</div>
+
   </div>
 
   <ion-button (click)="showInfo()"> click Me</ion-button>
-  <div>
-    dfekfojiefji
-  </div>
 
-  --------รูปที่เคยโพส------------
-  <div *ngIf="status">
-    <ion-list *ngFor="let i of feeding" style="display: grid;grid-template-rows: auto;"> 
-      <img (click)="openOnePost(i)" style="height: 100px;width: 100px;" [src]="i['url']" alt="">
-      <!-- <div>
-        {{i['message']}}
-      </div> -->
-    </ion-list>
-  </div>
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col>
+
+      <div *ngIf="status">
+        <ion-list *ngFor="let i of feeding" style="display: grid;grid-template-rows: auto;">
+          <img (click)="openOnePost(i)" style="height: 100px;width: 100px;" [src]="i['url']" alt="">
+          <!-- <div>
+            {{i['message']}}
+          </div> -->
+        <!-- </ion-list>
+      </div>
+
+
+    </ion-col>
+    </ion-row>
+
+  </ion-grid> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let i of feeding" style="display: grid;grid-template-rows: auto;" size="4">
+        <img (click)="openOnePost(i)" style="height: 120px;width: 120px;" [src]="i['url']" alt="">
+      </ion-col>
+      <ion-col size="6">
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+
+      </ion-col>
+      <ion-col size="6">
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   ------------------------------
 </div>
 

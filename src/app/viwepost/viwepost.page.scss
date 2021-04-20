@@ -73,11 +73,15 @@
 
 
 #font{
-  margin-top: 0%;
+  margin-top: -800px;
+ 
   font-size: 20px;
+  align-items: center;
+  flex-direction: column;
+
 }
-  #like{
-    margin-top: 10%;
+#like{
+  margin-top: 40%;
 }
 
 #pic{
