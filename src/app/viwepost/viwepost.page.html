@@ -1,36 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>viwepost</ion-title>
-    <ion-icon slot="start" name="close-outline" (click)="back()"></ion-icon>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
-------------ส่วนรายละเอียดของโพสต์นี้---------------
+<div id = "background" >
+  <img id ="logo"src=" https://drive.google.com/uc?export=view&id=1a2A-YRUpymaDdDp6Ie0daMO_dHtuLGGL" alt="">
+  <ion-icon id="cancel" slot="start" name="close-outline" (click)="back()"></ion-icon>
+<h4 id="name">{{name}}</h4>
+<h6 id="time">{{date}}</h6>
+<img id="pictur" style="height: 50px;width: 50px; border-radius: 50px;" [src]="image_profile" alt="">
 
-<h4>ชื่อคนโพส {{name}}</h4>
-<h6>{{date}}</h6>
-<img style="height: 50px;width: 50px; border-radius: 50px;" [src]="image_profile" alt="">
-<h5>ข้อความสเตตัส {{message}}</h5>
-<img [src]="url" alt="">
--------------------------------------------
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <img id="picpost" [src]="url" alt="">
+      <ion-icon id="like"  style="zoom:4.0;color: palevioletred; height: 10px;width: 10px;" [name]="iconlove" md="heart-sharp" (click)="lovepost()"></ion-icon>
+        <ion-col id="font"> like: {{countLove}}</ion-col>
+      </ion-col>
+      <ion-col>
+    <h5 id="message">{{message}}</h5>
+      </ion-col>
+  </ion-row>
+</ion-grid>
 
---------ที่เขียนคอมเมนต์------------
-<ion-input [(ngModel)]="message_comment" style="background-color: bisque;" >เขียนคอมเมนต์ : </ion-input>
-<ion-button (click)="send_comment()">send</ion-button>
------------------------
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+    <ion-input id="chat" color="light" style="height: 50px;width: 270px; border-radius: 10px;" placeholder="Comment" [(ngModel)]="message_comment"><ion-icon id="icon" name="chatbox-outline" color="light"></ion-icon>  </ion-input>
+  </ion-col>
+  <ion-col>
+  <ion-button id="sent" color="light" (click)="send_comment()"><ion-icon name="send-outline"></ion-icon></ion-button>
+</ion-col>
+</ion-row>
+</ion-grid>
 
----เอาคอมเมนต์มาวนลูป--
-<ion-icon style="zoom:4.0;color: palevioletred;" [name]="iconlove" md="heart-sharp" (click)="lovepost()"></ion-icon>
-จำนวนคนชอบ : {{countLove}}
-<div *ngIf="status_comment_box">
-  <ion-list *ngFor="let item of list_comment">
-    <div>
-      <img style="height: 25px;width: 25px; border-radius: 10px;" [src]="item['image_profile']" alt="">
-      {{item['name']}} :       
+<ion-grid >
+<div id="commentbox" *ngIf="status_comment_box">
+  <ion-list style="height: 80px;width: 320px; " *ngFor="let item of list_comment">
+    <div id ="pic">
+      <img  style="height: 40px;width: 40px; border-radius: 50px;" [src]="item['image_profile']" alt="">
+      {{ item['name']}} :
       {{item['message']}}
     </div>
   </ion-list>
 </div>
---------------------------
+</ion-grid>
+</div>
 </ion-content>
