@@ -1,7 +1,8 @@
 import { Component, OnInit,ViewChild, ElementRef  } from '@angular/core';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
-import { Platform, ActionSheetController } from '@ionic/angular';
+import { Platform, ActionSheetController, NavController } from '@ionic/angular';
 import {HttpService} from './../service/http.service'
+
 const {Storage,Camera} = Plugins
 @Component({
   selector: 'app-post',
@@ -20,7 +21,12 @@ export class PostPage implements OnInit {
   test_feed : String
   bufferDate : Date
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
-  constructor(private http: HttpService, private plt:Platform,private actionSheetCtrl: ActionSheetController) { }
+  constructor(
+    private http: HttpService, 
+    private plt:Platform,
+    private actionSheetCtrl: ActionSheetController,
+    private nav : NavController
+    ) { }
 
   async ngOnInit() {
     // this.bufferDate = ""
@@ -28,9 +34,9 @@ export class PostPage implements OnInit {
     this.feeding2 = []
     this.index_feeding = []
     this.message = ""
-    this.postStatus = true;
+    this.postStatus = true; //
     this.imagePost = ""
-    this.convertimage = "https://image.flaticon.com/icons/png/512/12/12313.png"
+    this.convertimage = "https://drive.google.com/uc?export=view&id=1W2DiYSDeGPsBsfaJvZaugh2dxtviwU05"
     await this.getProfile()
     await this.onFeeding()
   }
@@ -131,6 +137,19 @@ export class PostPage implements OnInit {
       this.feeding['message'][it]['date'] = this.bufferDate.getHours().toString() +":"+ this.bufferDate.getMinutes().toString() +"  "+this.bufferDate.getDay().toString()+"/"+this.bufferDate.getMonth().toString()+"/"+this.bufferDate.getFullYear().toString() 
       this.feeding2.push(this.feeding['message'][it])
     }
+  }
+
+  openOnePost(item){
+    console.log(item)
+    this.nav.navigateForward(['/viwepost',{
+      ID_post: item['ID_post'],
+      ID_user: item['ID_user'],
+      date: item['date'],
+      image_profile: item['image_profile'],
+      message: item['message'],
+      name:item['name'],
+      url: item['url']
+    }])
   }
 
 }

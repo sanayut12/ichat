@@ -46,7 +46,11 @@ const routes: Routes = [
   {
     path: 'addfriend',
     loadChildren: () => import('./addfriend/addfriend.module').then( m => m.AddfriendPageModule)
+  },  {
+    path: 'viwepost',
+    loadChildren: () => import('./viwepost/viwepost.module').then( m => m.ViwepostPageModule)
   },
+
 
 
 ];

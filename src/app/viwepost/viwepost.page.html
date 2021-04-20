@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>viwepost</ion-title>
+    <ion-icon slot="start" name="close-outline" (click)="back()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+------------ส่วนรายละเอียดของโพสต์นี้---------------
+
+<h4>ชื่อคนโพส {{name}}</h4>
+<h6>{{date}}</h6>
+<img style="height: 50px;width: 50px; border-radius: 50px;" [src]="image_profile" alt="">
+<h5>ข้อความสเตตัส {{message}}</h5>
+<img [src]="url" alt="">
+-------------------------------------------
+
+--------ที่เขียนคอมเมนต์------------
+<ion-input [(ngModel)]="message_comment" style="background-color: bisque;" >เขียนคอมเมนต์ : </ion-input>
+<ion-button (click)="send_comment()">send</ion-button>
+-----------------------
+
+---เอาคอมเมนต์มาวนลูป--
+<ion-icon style="zoom:4.0;" ios="heart-outline" md="heart-sharp" (click)="lovepost()"></ion-icon>
+<div *ngIf="status_comment_box">
+  <ion-list *ngFor="let item of list_comment">
+    <div>
+      <img style="height: 25px;width: 25px; border-radius: 10px;" [src]="item['image_profile']" alt="">
+      {{item['name']}} :       
+      {{item['message']}}
+    </div>
+  </ion-list>
+</div>
+--------------------------
+</ion-content>

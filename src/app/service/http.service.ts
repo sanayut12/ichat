@@ -4,7 +4,7 @@ import {HttpClient,HttpHeaders} from '@angular/common/http'
   providedIn: 'root'
 })
 export class HttpService {
-  url = "https://ichatserver.herokuapp.com" //"http://localhost:3000"
+  url =  "http://localhost:3000" //"https://ichatserver.herokuapp.com"
   constructor(
     private http:HttpClient,
     ) { }
@@ -133,6 +133,53 @@ export class HttpService {
       {
         ID:ID,
         image : image
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
+
+  onCommentPost(id_post : String,ID_userComment : String,name : String,image_profile : String,message : String){
+    return this.http.post(
+      this.url+'/commentpost',
+      {
+        id_post : id_post,
+        ID_userComment : ID_userComment,
+        name : name,
+        image_profile : image_profile ,
+        message : message
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
+
+  ongetComment(id_post : String){
+    return this.http.post(
+      this.url+'/getcommentpost',
+      {
+        id_post : id_post
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
+
+  onlovepost(id_post : String,ID : String){
+    return this.http.post(
+      this.url+'/love',
+      {
+        id_post : id_post,
+        ID : ID
       },
       {
         headers : new HttpHeaders({

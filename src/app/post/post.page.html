@@ -14,7 +14,7 @@
     <div id="postsend" *ngIf="!postStatus">
       <ion-grid>
         <ion-row>
-          <img (click)="selectImageSource()" id="imageP" src="https://drive.google.com/uc?export=view&id=1W2DiYSDeGPsBsfaJvZaugh2dxtviwU05" alt="">
+          <img (click)="selectImageSource()" id="imageP" [src]="convertimage" alt="">
             <ion-col>
               <ion-item id="inputpost" >
                 <!-- <ion-label position="floating">Description</ion-label> -->
@@ -74,33 +74,19 @@
 
               </ion-row> -->
             </ion-grid>
-
-
-
-
-            <!-- <ion-grid fixed>
+            <ion-grid fixed>
               <ion-row>
-                <ion-col>
-
+                <ion-col size="6">
+                  <button>like</button>
                 </ion-col>
-                <ion-col>
-                  <h5 class="textbox">
-
-                  </h5>
+                <ion-col size="6">
+                  <button (click)="openOnePost(feeding2[item])">comment</button>
                 </ion-col>
               </ion-row>
-            </ion-grid> -->
-              <!-- <ion-col>
-                <ion-row>
-                  <ion-col size="12">
-                    <img id="imageR" [src]="feeding2[item]['url']" alt="">
-                  <h5>{{feeding2[item]['message']}}</h5>
-                  </ion-col>
-                </ion-row>
-              </ion-col> -->
-
-
+            </ion-grid>
           </div>
+          
+          
         </ion-item-sliding>
     </ion-list>
 
