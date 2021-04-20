@@ -45,6 +45,7 @@ export class ViwepostPage implements OnInit {
     this.message_comment = ""
     await this.getProfile()
     this.ongetComment()
+    this.getlovepost()
   }
 
   getProfile = async () => {
@@ -86,6 +87,18 @@ export class ViwepostPage implements OnInit {
 
   lovepost(){
     this.http.onlovepost(this.ID_post,this.user_profile["ID_user"]).subscribe((res)=>{
+      console.log(res)
+      this.countLove = res['count']
+      if (res['userlove']){
+        this.iconlove = "heart"
+      }else{
+        this.iconlove = "heart-outline"
+      }
+    })
+  }
+
+  getlovepost(){
+    this.http.ongetlovepost(this.ID_post,this.user_profile["ID_user"]).subscribe((res)=>{
       console.log(res)
       this.countLove = res['count']
       if (res['userlove']){

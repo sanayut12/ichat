@@ -45,7 +45,7 @@ export class PostPage implements OnInit {
   }
   poststatusClickCancel(){
     this.postStatus = true;
-    this.convertimage = "https://image.flaticon.com/icons/png/512/12/12313.png"
+    this.convertimage = "https://drive.google.com/uc?export=view&id=1W2DiYSDeGPsBsfaJvZaugh2dxtviwU05"
   }
 
   getProfile = async () => {

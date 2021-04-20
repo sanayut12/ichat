@@ -188,4 +188,19 @@ export class HttpService {
       }
     );
   }
+
+  ongetlovepost(id_post : String,ID : String){
+    return this.http.post(
+      this.url+'/getlove',
+      {
+        id_post : id_post,
+        ID : ID
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
 }
