@@ -10,6 +10,8 @@ const {Storage,Camera} = Plugins
   styleUrls: ['./viwepost.page.scss'],
 })
 export class ViwepostPage implements OnInit {
+    countLove : Number
+    iconlove : String
     status_comment_box : boolean
     message_comment : String
     user_profile : Object
@@ -36,6 +38,8 @@ export class ViwepostPage implements OnInit {
    }
 
   async ngOnInit() {
+    this.countLove = 0
+    this.iconlove = "heart-outline"
     this.status_comment_box = false
     // this.list_comment = []
     this.message_comment = ""
@@ -83,6 +87,12 @@ export class ViwepostPage implements OnInit {
   lovepost(){
     this.http.onlovepost(this.ID_post,this.user_profile["ID_user"]).subscribe((res)=>{
       console.log(res)
+      this.countLove = res['count']
+      if (res['userlove']){
+        this.iconlove = "heart"
+      }else{
+        this.iconlove = "heart-outline"
+      }
     })
   }
 

@@ -21,7 +21,8 @@
 -----------------------
 
 ---เอาคอมเมนต์มาวนลูป--
-<ion-icon style="zoom:4.0;" ios="heart-outline" md="heart-sharp" (click)="lovepost()"></ion-icon>
+<ion-icon style="zoom:4.0;color: palevioletred;" [name]="iconlove" md="heart-sharp" (click)="lovepost()"></ion-icon>
+จำนวนคนชอบ : {{countLove}}
 <div *ngIf="status_comment_box">
   <ion-list *ngFor="let item of list_comment">
     <div>
