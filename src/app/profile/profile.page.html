@@ -7,9 +7,25 @@
   <div class="postfriend">
     <div>Friend</div>
     <div class="between"></div>
-    <div>Post</div>
+    <div>Post {{countPost}}</div>
   </div>
 
   <ion-button (click)="showInfo()"> click Me</ion-button>
+  <div>
+    dfekfojiefji
+  </div>
+
+  --------รูปที่เคยโพส------------
+  <div *ngIf="status">
+    <ion-list *ngFor="let i of feeding" style="display: grid;grid-template-rows: auto;"> 
+      <img (click)="openOnePost(i)" style="height: 100px;width: 100px;" [src]="i['url']" alt="">
+      <!-- <div>
+        {{i['message']}}
+      </div> -->
+    </ion-list>
+  </div>
+  ------------------------------
 </div>
+
+
 </ion-content>

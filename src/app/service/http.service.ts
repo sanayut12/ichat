@@ -203,4 +203,32 @@ export class HttpService {
       }
     );
   }
+
+  ongetPostMe(ID:String){
+    return this.http.post(
+      this.url+'/get_post_me',
+      {
+        ID : ID
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
+
+  onGetfriendInteractive(ID:String){
+    return this.http.post(
+      this.url+'/firendInteractive',
+      {
+        ID : ID
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
 }

@@ -55,6 +55,7 @@ togglePasswordMode() {
   }
 
   setProfileInLocal = async (body) =>{
+    console.log(body)
     await Storage.set({
       key : 'profile',
       value : body
