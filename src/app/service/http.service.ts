@@ -245,4 +245,18 @@ export class HttpService {
       }
     );
   }
+  // /getMessage
+  onGetMessage(ID_friend : String){
+    return this.http.post(
+      this.url+'/getMessage',
+      {
+        ID_friend: ID_friend
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
 }

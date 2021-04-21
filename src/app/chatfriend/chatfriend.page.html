@@ -1,6 +1,16 @@
 <ion-content>
   <div id = "background">
   <h1 id = "head">Chat</h1>
-  <ion-icon id = "icon" slot="end" name ="reload" (click)="getfriend()"></ion-icon>
+  <ion-button id = "icon" slot="end" name ="reload" (click)="show()">user_info</ion-button>
+  <div *ngIf = "status_friend_info">
+    <div *ngFor="let item of friend_info">
+      <ion-card (click)="gotoChat(item['key_friend'],item['url_image'],item['username'],item['ID_user'])">
+        <img [src]="item['url_image']" style="height: 50px;width: 50px;border-radius: 50px;" alt="">
+        {{item['username']}}
+      </ion-card>
+    </div>
   </div>
+</div>
+
+  
   </ion-content>

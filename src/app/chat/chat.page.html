@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon (click)="back()" slot="start" name ="close" ></ion-icon>
+    <ion-title >{{username_friend}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-grid style="height: 90%;width: 100%;">
+    <!-- <ion-button (click)="show()" >dddd</ion-button> -->
+  <!-- <ion-text color="medium" text-center>
+    
+    
+    <p>You joined the chat as {{ currentUser }}</p>
+  </ion-text> -->
+
+  <div *ngIf="messageStatus" style="height: 100%;width: 100%;">
+    <ion-row *ngFor="let message of messagesAll" style="width: 100%; display: flex;flex-direction: column;" >
+
+      <div *ngIf="message['sender']==ID_me" style="align-self: flex-end;display: flex;flex-direction: column;">               
+        <img [src]="url_image_me" alt="" style="align-self: flex-end; height: 35px;width: 35px;border-radius: 50px;margin-bottom: -20px;">
+        <ion-card style="padding: 10px 10px 10px 10px; background-color: yellow; color: black;">       
+          {{message['message']}}
+        </ion-card>
+        <div style="font-size: 8px;margin-top: -20px;align-self: flex-end;">{{message['date']}}</div> 
+        
+      </div>
+      
+
+      <div *ngIf="message['sender']==ID_friend" style="align-self: flex-start; width: max-content;">        
+        <img [src]="url_image_friend" alt=""  style="height: 35px;width: 35px;border-radius: 50px;margin-bottom: -30px;margin-right: 10px;">
+        <ion-card style="margin-right: 30px; padding: 10px 10px 10px 10px; background-color: grey; color: black;margin-left: 40px;display: flex;flex-direction: column;">          
+          {{message['message']}}
+        </ion-card>
+        <div style="font-size: 8px;margin-top: -20px;">{{message['date']}}</div>
+      </div>
+      
+      
+    </ion-row>
+  </div> 
+
+</ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-row align-items-center>
+      <ion-col size="10">
+        <ion-textarea auto-grow class="message-input" rows="1" [(ngModel)]="message"></ion-textarea>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" color="primary" [disabled]="message === ''" class="msg-btn"
+          (click)="sendMessage()">
+          <ion-icon name="send" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
