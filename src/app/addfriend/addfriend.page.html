@@ -22,24 +22,44 @@
             <ion-row size="1" offset ="1" class="ion-align-items-start">
               <ion-col>
                 <button *ngIf="all_user_search[key].status == 'unfriend'" (click)="addfriend(user_info.ID_user,key)">Add</button>
-              <button  *ngIf="all_user_search[key].status == 'wait'" (click)="unWaitfriend(key,all_user_search[key].ID_friend,'unfriend')">un wait</button>
-              <button  *ngIf="all_user_search[key].status == 'confirm'" (click)="confirmFriend(key,all_user[key].ID_friend,'friend')">confirm</button>
-              <button  *ngIf="all_user_search[key].status == 'confirm'" (click)="unWaitfriend(key,all_user_search[key].ID_friend,'unfriend')">delete</button>
-              <button  *ngIf="all_user_search[key].status == 'friend'" (click)="unWaitfriend( key,all_user_search[key].ID_friend,'unfriend')">unfriend</button>
+                <button  *ngIf="all_user_search[key].status == 'wait'" (click)="unWaitfriend(key,all_user_search[key].ID_friend,'unfriend')">un wait</button>
+                <button  *ngIf="all_user_search[key].status == 'confirm'" (click)="confirmFriend(key,all_user[key].ID_friend,'friend')">confirm</button>
+                <button  *ngIf="all_user_search[key].status == 'confirm'" (click)="unWaitfriend(key,all_user_search[key].ID_friend,'unfriend')">delete</button>
+                <button  *ngIf="all_user_search[key].status == 'friend'" (click)="unWaitfriend( key,all_user_search[key].ID_friend,'unfriend')">unfriend</button>
             <!-- <ion-button Color="primary">default</ion-button> -->
               </ion-col>
             </ion-row>
-
-
-
-
-
           </ion-grid>
         </ion-card>
 
 
       </ion-item-sliding>
     </ion-list>
-    <!-- <ion-button (click)="showKey()"> Click Me</ion-button> -->
+    <ion-button (click)="showKey()"> Click Me</ion-button>
+    
+    <div *ngIf="statusRes">
+      คนที่ขอเป็นเพื่อนคุณ
+      <div *ngFor="let item of userRes">
+        <ion-card>
+          <img style="height: 50px;width: 50px;" [src]="item['url_image']" alt="">
+          {{item['username']}}
+          <button (click)="confirmFriendC(item['ID_post'],'friend')">confirm</button>
+          <button (click)="unWaitfriendC(item['ID_post'],'unfriend')">delete</button>
+        </ion-card>
+        
+      </div>
+    </div>
+
+    <div *ngIf="statusReq">      
+      คนที่คุณขอเป็นเพื่อน
+      <div *ngFor="let item of userReq">
+        <ion-card>
+          <img style="height: 50px;width: 50px;" [src]="item['url_image']" alt="">
+          {{item['username']}}
+          <button (click)="unWaitfriendC(item['ID_post'],'unfriend')">un wait</button>
+        </ion-card>
+      </div>
+    </div>
+
   </div>
 </ion-content>

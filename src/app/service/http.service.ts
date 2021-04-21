@@ -231,4 +231,18 @@ export class HttpService {
       }
     );
   }
+
+  onGetUserInteractive(ID : String){
+    return this.http.post(
+      this.url+'/getUserInteractive',
+      {
+        ID : ID
+      },
+      {
+        headers : new HttpHeaders({
+          "content-type" : "application/json"
+        })
+      }
+    );
+  }
 }

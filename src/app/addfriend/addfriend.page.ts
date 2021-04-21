@@ -10,18 +10,23 @@ const {Storage} = Plugins
 })
 export class AddfriendPage implements OnInit {
   nameSearch : String
-
   user_info : Object
   all_user : Object
   keys : any
-
   all_user_search : Object
   keys_search : any
-
   showUser : boolean
+
+  userReq : any
+  userRes : any
+
+  statusReq : boolean
+  statusRes : boolean
   constructor(private http : HttpService) { }
 
   async ngOnInit() {
+    this.statusReq = false
+    this.statusRes = false
     this.showUser = false
     this.nameSearch =""
    await this.getProfile()
@@ -32,6 +37,30 @@ export class AddfriendPage implements OnInit {
    }else{
     this.showUser = true
    }
+  }
+
+  async getUserInteractive(){
+    this.userReq = null
+    this.userRes = null
+    this.statusReq = false
+    this.statusRes = false
+    this.http.onGetUserInteractive(this.user_info["ID_user"]).subscribe((res)=>{
+      console.log(res)
+      // var reqlen = 
+      this.userReq = res['userReq']
+      this.userRes = res['userRes']
+      if (this.userReq.length ==0){
+        this.statusReq = false
+      }else{
+        this.statusReq = true
+      }
+
+      if (this.userRes.length ==0){
+        this.statusRes = false
+      }else{
+        this.statusRes = true
+      }
+    })
   }
 
   change = (event) =>{
@@ -59,6 +88,7 @@ export class AddfriendPage implements OnInit {
   getProfile = async () =>{
     const profile = await Storage.get({key : 'profile'})
     this.user_info = JSON.parse(profile.value)
+    await this.getUserInteractive()
   }
 
   search = async (name) =>{
@@ -93,6 +123,7 @@ export class AddfriendPage implements OnInit {
     this.showUser = false
     await this.http.onAddfriend(ID1,ID2).subscribe((res)=>{
       console.log(res)
+      this.getUserInteractive()
     })
     console.log("name search addf friend"+ this.nameSearch)
     await this.focus()
@@ -105,20 +136,38 @@ export class AddfriendPage implements OnInit {
     this.showUser = false
     await this.http.onUnwait(ID_friend,status).subscribe((res)=>{
       console.log(res)
+      this.getUserInteractive()
     })
     await this.focus()
     await this.search(this.nameSearch)
     console.log("id friend"+ID)
     this.updateStatus(ID,"unfriend")
   }
+  async unWaitfriendC(ID_friend,status){
+    // this.updateStatus(ID_friend,"unfriend")
+    this.showUser = false
+    await this.http.onUnwait(ID_friend,status).subscribe((res)=>{
+      console.log(res)
+      this.getUserInteractive()
+    })
+  }
   async confirmFriend(ID,ID_friend,status){
     this.showUser = false
     await this.http.onConfirmFriend(ID_friend,status).subscribe((res)=>{
       console.log(res)
+      this.getUserInteractive()
     })
     await this.focus()
     await this.search(this.nameSearch)
     this.updateStatus(ID,"friend")
+    
+  }
+  async confirmFriendC(ID_friend,status){
+    this.showUser = false
+    await this.http.onConfirmFriend(ID_friend,status).subscribe((res)=>{
+      console.log(res)
+      this.getUserInteractive()
+    })
   }
 
   checksearchuser(){

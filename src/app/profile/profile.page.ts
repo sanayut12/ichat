@@ -17,6 +17,8 @@ export class ProfilePage implements OnInit {
   status : boolean
   feeding : any
   countPost : Number
+  friend_list : any
+  countFriend : Number
 
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   constructor(
@@ -29,6 +31,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.countPost = 0
+    this.countFriend = 0
     this.status = false
     this.user_image_profile = ""
     console.log("Profile")
@@ -37,7 +40,8 @@ export class ProfilePage implements OnInit {
 
   async getfriendInteractive(){
     await this.http.onGetfriendInteractive(this.user_info["ID_user"]).subscribe((res)=>{
-      console.log(res)
+      this.friend_list = res
+      this.countFriend = this.friend_list.length
     })
   }
 
@@ -49,6 +53,7 @@ export class ProfilePage implements OnInit {
     await this.getfriendInteractive()
   }
 
+  
   setProfileInLocal = async () =>{
     console.log("update local storage")
     var body = JSON.stringify(this.user_info)
@@ -219,6 +224,9 @@ export class ProfilePage implements OnInit {
     }])
   }
 
+  viewAllFriend(){
+    this.nav.navigateForward('/friendme')
+  }
 
 
 }

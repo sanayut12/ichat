@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>friendme</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-button (click)="back()" >Back</ion-button>
+<ion-button (click)="ckeck()">click</ion-button>
+<div *ngFor="let item of friend_list">
+  <ion-card>   
+    <img style="height: 100px;width: 100px; border-radius: 50px;" [src]="item['url_image']" alt="">
+    <div>{{item['username']}}</div>
+    <ion-button>view profile</ion-button>
+    <ion-button>delete</ion-button>
+  </ion-card>
+</div>
+</ion-content>

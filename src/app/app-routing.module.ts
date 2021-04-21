@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'viwepost',
     loadChildren: () => import('./viwepost/viwepost.module').then( m => m.ViwepostPageModule)
+  },  {
+    path: 'friendme',
+    loadChildren: () => import('./friendme/friendme.module').then( m => m.FriendmePageModule)
   },
+
 
 
 
